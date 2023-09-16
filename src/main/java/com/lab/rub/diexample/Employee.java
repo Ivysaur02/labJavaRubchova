@@ -2,19 +2,26 @@ package com.lab.rub.diexample;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Getter
-@Setter
-@Component
-public class Employee {
 
+@Component
+@Scope("prototype")
+@NoArgsConstructor
+public class Employee {
+    @Setter
+    @Value("${man.name}")
     private String name;
+    @Setter
+    @Value("${man.age}")
     private int age;
+    @Setter
+    @Value("${man.job}")
     private String nameOfWork;
     private Car car;
     private Pet pet;
@@ -30,11 +37,12 @@ public class Employee {
     }
 
     @Autowired
-    public Employee(String name, int age, String nameOfWork, Car car, Pet pet) {
-        this.name = name;
-        this.age = age;
-        this.nameOfWork = nameOfWork;
+    public void setCar(Car car) {
         this.car = car;
+    }
+
+    @Autowired
+    public void setPet(Pet pet) {
         this.pet = pet;
     }
 

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 @PropertySource("application.yml")
-@AllArgsConstructor
 @NoArgsConstructor
 public class Car {
 

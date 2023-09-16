@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 @PropertySource("application.yml")
-@AllArgsConstructor
 @NoArgsConstructor
 public class Pet {
 
