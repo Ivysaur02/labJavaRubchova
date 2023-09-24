@@ -2,11 +2,15 @@ package com.lab.rub.Entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "doctor")
+@Getter
+@Setter
 public class Doctor {
 
     @Id
@@ -18,4 +22,9 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor")
     List<Pet> pets;
+
+    @Override
+    public String toString(){
+        return "Доктор "+ name;
+    }
 }

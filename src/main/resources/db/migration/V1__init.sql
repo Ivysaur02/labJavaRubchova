@@ -11,13 +11,11 @@ CREATE TABLE owner (
   PRIMARY KEY (id)
 );
 
-
 CREATE TABLE pet_history (
   id SERIAL NOT NULL,
   pet_history_message TEXT,
   PRIMARY KEY (id)
 );
-
 
 CREATE TABLE pet (
   id SERIAL NOT NULL,

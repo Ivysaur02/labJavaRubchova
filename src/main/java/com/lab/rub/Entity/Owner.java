@@ -2,11 +2,15 @@ package com.lab.rub.Entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "owner")
+@Getter
+@Setter
 public class Owner {
 
     @Id
@@ -22,4 +26,9 @@ public class Owner {
 
     @ManyToMany(mappedBy = "owners")
     List<Pet> pets;
+
+    @Override
+    public String toString(){
+        return "Хозяин "+ name;
+    }
 }

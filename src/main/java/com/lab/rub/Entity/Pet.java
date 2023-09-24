@@ -1,11 +1,17 @@
 package com.lab.rub.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Entity
 @Table(name = "pet")
+@Getter
+@Setter
+@ToString
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
