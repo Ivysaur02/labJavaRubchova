@@ -1,5 +1,14 @@
-car.name: Toyota
-pet.name: Kitty
-man.name: Bob
-man.job: Zavod
-man.age: 15
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/check
+    username: postgres
+    password: 123
+    driverClassName: org.postgresql.Driver
+
+
