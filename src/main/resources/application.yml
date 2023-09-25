@@ -10,5 +10,11 @@ spring:
     username: postgres
     password: 123
     driverClassName: org.postgresql.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template-location: true
+    content-type: text/html
+    encoding: UTF-8
 
 

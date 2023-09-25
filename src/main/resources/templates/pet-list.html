@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet List</title>
+</head>
+<body>
+<h1>Pet List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Pet History</th>
+        <th>Owners</th>
+        <th>Doctor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet : ${pets}">
+        <td th:text="${pet.name}"></td>
+        <td th:text="${pet.petHistory}"></td>
+        <td>
+            <ul>
+                <li th:each="owner : ${pet.ownerList}" th:text="${owner.name}"></li>
+            </ul>
+        </td>
+        <td th:text="${pet.doctor}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
