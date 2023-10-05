@@ -2,15 +2,14 @@ package com.lab.rub.Entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "doctor")
-@Getter
-@Setter
+@Data
 public class Doctor {
 
     @Id
@@ -21,7 +20,7 @@ public class Doctor {
     String name;
 
     @OneToMany(mappedBy = "doctor")
-    List<Pet> pets;
+    List<Pet> pets= new ArrayList<>();;
 
     @Override
     public String toString(){

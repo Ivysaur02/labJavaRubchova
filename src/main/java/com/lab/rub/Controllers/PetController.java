@@ -1,7 +1,7 @@
 package com.lab.rub.Controllers;
 
 
-import com.lab.rub.DTO.mapper.PetDTO;
+import com.lab.rub.DTO.PetDTO;
 import com.lab.rub.Entity.Pet;
 import com.lab.rub.Service.PetService;
 import org.modelmapper.ModelMapper;
@@ -23,7 +23,7 @@ public class PetController {
 
 
     @GetMapping("/pet")
-    public String showPetList(Model model) {
+    public String showPets(Model model) {
         List<Pet> pets = petService.getAllPet();
         List<PetDTO> petDtoList = pets.stream().
                 map(pet -> modelMapper.map(pet, PetDTO.class)).
