@@ -1,27 +1,34 @@
 package com.lab.rub.Controllers;
 
 
-import com.lab.rub.DTO.PetDto;
+import com.lab.rub.DTO.mapper.PetDTO;
+import com.lab.rub.Entity.Pet;
 import com.lab.rub.Service.PetService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class PetController {
 
 
     @Autowired
     PetService petService;
+    @Autowired
+    ModelMapper modelMapper;
 
 
     @GetMapping("/pet")
     public String showPetList(Model model) {
-        List<PetDto> pets = petService.getAllPet();
-        model.addAttribute("pets", pets);
+        List<Pet> pets = petService.getAllPet();
+        List<PetDTO> petDtoList = pets.stream().
+                map(pet -> modelMapper.map(pet, PetDTO.class)).
+                toList();
+        model.addAttribute("pets", petDtoList);
         return "pet-list";
     }
 
