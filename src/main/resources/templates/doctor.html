@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor List</title>
+</head>
+<body>
+<h1>Doctor List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Pets</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="doctor : ${doctors}">
+        <td th:text="${doctor.id}"></td>
+        <td th:text="${doctor.name}"></td>
+        <td>
+            <ul>
+                <li th:each="pet : ${doctor.pets}">
+                    <span th:text="${pet.id}"></span>
+                    <span th:text="${pet.name}"></span>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h1>Create Doctor</h1>
+<form method="post" th:action="@{/doctor}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="pet">Pet:</label>
+    <select id="pet" name="petId" required>
+        <option value="">Select a pet</option>
+        <option th:each="pet : ${pets}"
+                th:value="${pet.id}"
+                th:text="${pet.name}"></option>
+    </select>
+    <button type="submit">Create</button>
+</form>
