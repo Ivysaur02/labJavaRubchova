@@ -27,8 +27,4 @@ public class Owner {
     @ManyToMany(mappedBy = "owners")
     List<Pet> pets;
 
-    @Override
-    public String toString(){
-        return "Хозяин "+ name;
-    }
 }

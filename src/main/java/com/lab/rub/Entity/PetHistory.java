@@ -19,9 +19,4 @@ public class PetHistory {
     @OneToOne(mappedBy = "petHistory")
     Pet pet;
 
-
-    @Override
-    public String toString(){
-        return "Хозяин "+ pet_history_message;
-    }
 }

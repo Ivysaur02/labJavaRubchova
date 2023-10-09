@@ -22,8 +22,4 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     List<Pet> pets= new ArrayList<>();;
 
-    @Override
-    public String toString(){
-        return "Доктор "+ name;
-    }
 }
